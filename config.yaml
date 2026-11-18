@@ -1,0 +1,28 @@
+
+model:
+  path: models/convnext_tiny_deployment.onnx
+  name: ConvNeXt-Tiny
+  version: finetune_top30
+  input_name: image
+  output_name: logits
+
+preprocessing:
+  image_size: 224
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+classification:
+  threshold: 0.2
+  positive_class: bad
+  class_mapping:
+    good: 0
+    bad: 1
+
+deployment:
+  provider: CPUExecutionProvider
+  intra_op_threads: 1
+  inter_op_threads: 1
+
+paths:
+  samples: samples
+  predictions: predictions.json

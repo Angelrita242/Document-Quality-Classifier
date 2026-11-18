@@ -1,0 +1,7 @@
+
+numpy
+Pillow
+onnxruntime
+PyYAML
+streamlit
+pytest
